@@ -1,14 +1,16 @@
 
 import React from "react";
-
+import { List } from "./ToDoSyling/toDoStyling"
 const Todo = props => {
+
     return (
-        <div onClick={event => props.toggleTask(props.task.id)}
+        <List style={props.task.taskDone ? { textDecoration: 'line-through' } : null} onClick={event => props.toggleTask(props.task.id)}
             className={`task${props.task.taskDone ? "taskDone" : ""}`}>
 
             <p>{props.task.name}</p>
 
-        </div>
+
+        </List>
     );
 }
 

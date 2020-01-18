@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { Heading } from './components/TodoComponents/ToDoSyling/toDoStyling'
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
+import "./Todo.css"
 const toDo = [
   {
     task: 'have fun',
@@ -46,22 +46,28 @@ class App extends React.Component {
 
   toggleTask = id => {
 
-    const newState = {
-      ...this.state,
+    this.setState({
+
       todoList: this.state.todoList.map(task => {
         if (task.id === id) {
           return {
             ...task,
             taskDone: !task.taskDone
           }
+        } else {
+          return task;
         }
-        return task;
+
       })
-    }
-    this.setState(newState);
 
 
-  };
+
+
+    })
+  }
+
+
+
 
   clearTask = () => {
     const newState = {
@@ -75,15 +81,19 @@ class App extends React.Component {
 
   render() {
     return (
+
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <Heading>
+          <h2>Welcome to your Todo App!</h2>
+        </Heading>
         <div>
           <TodoForm addNewTodo={this.addNewTodo} />
         </div>
         <TodoList toDo={this.state.todoList}
           toggleTask={this.toggleTask}
           clearTask={this.clearTask} />
-      </div>
+      </div >
+
     );
   }
 }

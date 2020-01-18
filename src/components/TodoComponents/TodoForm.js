@@ -1,6 +1,6 @@
 import React from "react";
-
-
+import { FormCard } from './ToDoSyling/toDoStyling'
+import { Button } from "./ToDoSyling/toDoStyling";
 class TodoForm extends React.Component {
 
     constructor() {
@@ -21,20 +21,22 @@ class TodoForm extends React.Component {
     render() {
 
         return (
-            <div className="form">
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChanges}
-                        type="text"
-                        name="Todo"
-                        value={this.state.newTodo} />
+            <FormCard>
+                <div className="form">
+                    <form onSubmit={this.handleSubmit}>
+                        <input onChange={this.handleChanges}
+                            type="text"
+                            name="Todo"
+                            value={this.state.newTodo} />
 
 
 
-                    <button>Add</button>
+                        <Button>Add</Button>
 
-                </form>
+                    </form>
 
-            </div>
+                </div>
+            </FormCard>
         )
     }
 }
